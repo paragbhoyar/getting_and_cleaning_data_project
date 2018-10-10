@@ -5,6 +5,7 @@ This repository contains:-
 1) A tidy data set called tidy_data.txt
 2) A code book that describes the variables, the data, and any transformations or work that was performed to clean
 up the data called CodeBook.md.
+3) run_analysis.R that performs the required transformation of data.
 
 The data was collected from the accelerometers from the Samsung Galaxy S smartphone from this site.
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
