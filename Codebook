@@ -58,3 +58,33 @@ NOTES:-
 - Features are normalized and bounded within [-1,1].
 - Each feature vector is a row on the text file.
 
+## Following steps were carried out to tidy the data
+1) X_test.txt, subject_test.txt, y_test.txt was read into corrosponding variables using read.table().
+2) Similarly X_train.txt, subject_train.txt, y_train.txt was read into corrosponding variables using read.table().
+3) subject_test, y_test, x_test were column bound using cbind() into a new table test_data.
+4) subject_train, y_train, x_train were column bound using cbind() into an new table train_data.
+5) test_data and train data were row bound using rbind() into new table combined_data.
+6) features.txt which contains column variable names for test and train data was read using read.table().
+7) A new variable list_features was created by subsetting 2nd column of features table as characters.
+8) A new variable col_names was created using  "col_names <- c("subject", "activity", list_features)".
+9) A new table data_mean was created by subsetting combined_data with coulmn names containing mean() using grep().
+10) A new table data_std was created by subsetting combined_data with coulmn names containing std() using grep().
+11) A new table filtered_data was created by column binding 1st and 2nd column of combined_data ,data_mean and data_std using cbind().
+12) activity_labels.txt which contains desscription of activities was read usig read.table().
+13) Using a for loop values of activity column of filtered_data was repaced with a descriptive activity names.
+14) Column names of filtered_data were appropriately names with descriptive variable names. Such as replacing variables starting with
+t to time
+f to frequency
+mean() to mean
+std() to stdev
+15) filtered_data was then grouped by subject and activity using group_by() from dplyr package into a temperory table temp_tbl.
+16) using summarise_all() from dplyr package mean of all coulmns was calculated and result stored in temp_tbl.
+17) using write.table() row.names = FALSE a text file was created tidy_data.txt which contains tidy data.
+
+
+
+
+
+
+
+
